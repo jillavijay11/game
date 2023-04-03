@@ -1,0 +1,67 @@
+//{ Driver Code Starts
+//Initial Template for Java
+
+
+import java.io.*;
+import java.util.*; 
+
+class GFG{
+    public static void main(String args[]) throws IOException { 
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); 
+  
+        
+        int t = Integer.parseInt(br.readLine()); 
+
+        while(t > 0){
+  
+            String x = br.readLine(); 
+            
+            Solution ob = new Solution();
+		
+            System.out.println(ob.xmod11(x)); 
+
+            t--;
+        }
+    } 
+} 
+
+
+
+// } Driver Code Ends
+
+
+
+//User function Template for Java
+
+class Solution 
+{ 
+    static int xmod11(String x)
+	{    
+	    // code here
+        int odd=0,even=0;
+        int cnt=0;
+        for(int i=x.length()-1;i>=0;i--)
+        {
+            if(cnt==0)
+            {
+                odd=odd+x.charAt(i)-'0';
+              cnt=1;
+            }
+            else{
+                cnt=0;
+              
+             even=even+x.charAt(i)-'0';
+            }
+            
+            
+            
+        }
+        int k=odd-even;
+        k=k%11;
+        if(k<0)
+        {
+            k=k+11;
+        }
+        return k;
+	}
+} 
